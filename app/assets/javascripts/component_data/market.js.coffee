@@ -7,7 +7,7 @@
   @reqK = (market, minutes, limit = 768) ->
     tid = if gon.trades.length > 0 then gon.trades[0].tid else 0
     tid = @last_tid+1 if @last_tid
-    url = "/api/v2/k_with_pending_trades.json?market=#{market}&limit=#{limit}&period=#{minutes}&trade_id=#{tid}"
+    url = "https://coopex.market/api/v2/k_with_pending_trades.json?market=#{market}&limit=#{limit}&period=#{minutes}&trade_id=#{tid}"
     $.getJSON url, (data) =>
       @handleData(data, minutes)
 

@@ -28,6 +28,7 @@ private
 
   def market_variables_url
     url = URI.parse(ENV.fetch('PLATFORM_ROOT_URL'))
+    url = "https://coopex.market/"
     url = URI.join(url, '/markets/')
     URI.join(url, params[:market_id] + '.json')
   end

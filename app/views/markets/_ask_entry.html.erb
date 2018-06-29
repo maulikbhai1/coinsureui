@@ -21,7 +21,7 @@
       </div>
       <%= render partial: 'balance', locals: { currency: market.fetch(:ask_unit).upcase } %>
 
-      <button class="btn btn-primary btn-block text-down" type="submit">
+  <%#    <button class="btn btn-primary btn-block text-down" type="submit">
         <%= t('.action', currency: market.fetch(:ask_unit).upcase) %>
       </button>
     <% end %>

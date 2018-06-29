@@ -17,9 +17,9 @@
     switch
       when !@value
         @trigger 'place_order::price_alert::hide'
-      when @value > (lastPrice * 1.1)
+      when @value > (lastPrice)
         @trigger 'place_order::price_alert::show', {label: 'price_high'}
-      when @value < (lastPrice * 0.9)
+      when @value < (lastPrice)
         @trigger 'place_order::price_alert::show', {label: 'price_low'}
       else
         @trigger 'place_order::price_alert::hide'

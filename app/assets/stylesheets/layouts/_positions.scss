@@ -18,7 +18,7 @@
 
     .last {
       padding-top: 5px;
-      font-size: 25px;
+      font-size: 34px;
       line-height: 34px;
     }
   }
@@ -27,7 +27,6 @@
     width: $order-book-width; height: $order-book-height;
     min-height: $order-book-height;
     top: $gutter; left: $gutter;
-    font-size: 12px;
 
     .panel-body-content {
       min-height: $order-book-height - $panel_table_header_high;
@@ -104,7 +103,6 @@
     height: $market-trades-height;
     min-height: $market-trades-height;
     z-index: 999;
-    font-size: 12px;
 
     .panel {
       width: $market-trades-width;
@@ -225,7 +223,7 @@
 
     .last {
       padding-top: 5px;
-      font-size: 25px;
+      font-size: 34px;
       line-height: 34px;
     }
   }
@@ -234,11 +232,6 @@
     width: $order-book-width; height: $order-book-height;
     min-height: $order-book-height;
     top: $gutter; right: $gutter;
-    font-size: 12px;
-
-    #order_book_header table th{
-      padding: 0 2px 0 0;
-    }
 
     .panel-body-content {
       min-height: $order-book-height - $panel_table_header_high;
@@ -255,13 +248,7 @@
         .price, .amount, .volume, g { color: #444; }
       }
 
-      .price, .amount, .volume { color: $main-gray; padding: 0 2px 0 0;}
-
-      tr {
-        &.text-up, &.text-down {
-          td { color: inherit }
-        }
-      }
+      .price, .amount, .volume { color: $main-gray; }
 
     }
   }
@@ -321,7 +308,6 @@
     height: $market-trades-height;
     min-height: $market-trades-height;
     z-index: 999;
-    font-size: 12px;
 
     .panel {
       width: $market-trades-width;
