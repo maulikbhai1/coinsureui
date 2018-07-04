@@ -22,3 +22,78 @@
     <%= render partial: 'my_orders' %>
   </div>
 </div>
+<!-- 
+<div class="vlb-bg pt25pb25">
+    <div class="s-content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-xs-9">
+            <div class="rb7 p25 w-bg">
+              <div class="cf mb25">
+                <div class="fs16 b-color fw700 t-up fl">
+                  ETH/BTC dinamic
+                </div>
+                <div class="chart" style="height:447px;">
+                  <%= render partial: 'candlestick' %>
+                  <%= render partial: 'range_switch' %>
+                  <%= render partial: 'indicator_switch' %>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-xs-3">
+            <div class="curr-box">
+              <div class="curr-but-box">
+                <%= render partial: 'market_list' %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="pt25 pb25">
+    <div class="s-content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-xs-3">
+            <%= render partial: 'bid_entry', locals: { market: @data.fetch(:current_market) } %>
+            <div class="g-h-gradient t-b-line"></div>
+            <div class="b-t-bg pt11 pb12 pl20 b-color fw700 t-up fs16">
+              Buy ETH
+            </div>
+            <div class="p20">
+
+            </div>
+          </div>
+          <div class="col-xs-3">
+            <%= render partial: 'ask_entry', locals: { market: @data.fetch(:current_market) } %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="vlb-bg pt25 pb25">
+    <div class="s-content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-xs-4">
+            <%= render partial: 'order_book' %>
+          </div>
+          <div class="col-xs-4">
+            <%= render partial: 'order_ask_book' %>
+          </div>
+          <div class="col-xs-4">
+            <%= render partial: 'my_orders' %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="pt25 pb25">
+    <div class="s-content">
+      <%= render partial: 'market_trades' %>
+    </div>
+  </div>
+
+  -->

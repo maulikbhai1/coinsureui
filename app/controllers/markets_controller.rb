@@ -3,6 +3,7 @@ require 'uri'
 class MarketsController < ApplicationController
   def show
     attempts_left ||= 3
+    market_variables_url = 'https://coopex.market/markets/coopeth.json'
     response = Faraday.get(market_variables_url, params.slice(:lang), 'Cookie' => request.headers['HTTP_COOKIE'])
     if response.status.to_i % 100 == 4
       head response.status
