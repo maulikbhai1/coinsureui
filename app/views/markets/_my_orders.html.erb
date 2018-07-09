@@ -1,4 +1,4 @@
-<div id="my_orders_wrapper" class="has-left-dropdown">
+<!--<div id="my_orders_wrapper" class="has-left-dropdown">
   <div class="dropdown-wrapper">
     <ul class="dropdown-menu">
       <li>
@@ -19,6 +19,25 @@
       </div>
       <table class="table table-hover">
         <tbody></tbody>
+      </table>
+    </div>
+    <%= render partial: 'mask' %>
+  </div>
+</div>
+-->
+<div class="form exchange__order-history">
+  <div class="form__header">
+    <h2 class="title">Order History</h2>
+  </div>
+  <div class="form__body order-history__body" style="min-height:208px;">
+    <div class="form__column-container order-history__column-container">
+      <div class="form__column order-history__column">Size</div>
+      <div class="form__column order-history__column">Price (USD)</div>
+      <div class="form__column order-history__column">Time</div>
+    </div>
+    <div id="my_orders" class="order-history__order-form-container" style="min-height:175px;">
+      <table class="table table-hover" style="width:100%;border-spacing:0px;">
+        <tbody style="width:100%;"></tbody>
       </table>
     </div>
   </div>

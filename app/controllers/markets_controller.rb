@@ -3,7 +3,10 @@ require 'uri'
 class MarketsController < ApplicationController
   def show
     attempts_left ||= 3
+    puts market_variables_url
+    # market_variables_url = 'http://ec2-54-202-248-61.us-west-2.compute.amazonaws.com/markets/11.json'
     market_variables_url = 'https://coopex.market/markets/coopeth.json'
+    # puts market_variables_url
     response = Faraday.get(market_variables_url, params.slice(:lang), 'Cookie' => request.headers['HTTP_COOKIE'])
     if response.status.to_i % 100 == 4
       head response.status
@@ -29,7 +32,6 @@ private
 
   def market_variables_url
     url = URI.parse(ENV.fetch('PLATFORM_ROOT_URL'))
-    url = "https://coopex.market/"
     url = URI.join(url, '/markets/')
     URI.join(url, params[:market_id] + '.json')
   end

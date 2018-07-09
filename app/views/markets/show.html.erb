@@ -7,93 +7,142 @@
 </audio>
 
 <%= render partial: 'header' %>
-<div id="wrap">
-  <div class="content">
-    <%= render partial: 'market_trades' %>
-    <%= render partial: 'market_list' %>
+<div class="container exchange__container">
+  <div class="side side--left">
+    <!--Trading product-->
+    <div class="form exchange__trading-form">
+      <div class="form__header">
+        <h2 class="title">Trading Product</h2>
+      </div>
+      <div class="form__body trading-product">
+        <div class="trading-product__column trading-product__column--market">
+          <div class="trading-product__title-container">
+              <p class="trading-product__title"><%= @data.fetch(:current_market).fetch(:ask_unit).upcase %> </p>
+              <i class="icon icon-exchange trading-product__icon-exchange"></i>
+              <p class="trading-product__title"><%= @data.fetch(:current_market).fetch(:bid_unit).upcase %></p>
+          </div>
+          <div class="trading-product__body-container">
+            <p onclick="toggleAssetInfo()" class="trading-product__value">
+              <span class="trading-product__market">Market</span>
+            </p>
+            <div id="trading-asset-info-id" class="trading-dropdown form__body">
+              <div class="trading-dropdown__backround"></div>
+              <div class="trading-dropdown__main-block">
+                <div class="form__column-container">
+                  <div class="form__column trading-dropdown__column">Asset</div>
+                  <div class="form__column trading-dropdown__column">Last Price</div>
+                  <div class="form__column trading-dropdown__column">Change</div>
+                </div>
+                <div class="trading-dropdown__form-container">
+                  <% @data.fetch(:markets).each do |market| %>
+                      <div class="form__column-container form__column-container-value trading-dropdown__row">
+                          <div class="form__column trading-dropdown__column trading-dropdown__column-value form__column-value">
+                              <%= link_to market.fetch(:name), '/trading/' + market.fetch(:id).to_s %>
+                          </div>
+                          <div class="form__column trading-dropdown__column trading-dropdown__column-value form__column-value">
+                              <%= market.fetch(:ticker).fetch(:last) %>
+                          </div>
+                          <div class="form__column trading-dropdown__column trading-dropdown__column-value form__column-value">
+                              | +0.00%
+                          </div>
+                      </div>
+                  <% end %>
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="trading-product__column trading-product__column--trade-price">
+          <div class="trading-product__title-container">
+              <% @data.fetch(:markets).each do |market| %>
+                  <% if market.fetch(:id) == @data.fetch(:current_market).fetch(:id) %>
+                  <p class="trading-product__title"><%= market.fetch(:ticker).fetch(:last) %><span class="trading-product__title--extra trading-product__extra-info"><%= @data.fetch(:current_market).fetch(:ask_unit) %></span></p>
+                  <% break %>
+                  <% end %>
+              <% end %>
+            
+          </div>
+          <div class="trading-product__body-container">
+            <p class="trading-product__value">Last Trade Price</p>
+          </div>
+        </div>
+        <div class="trading-product__column trading-product__column--24h-price">
+          <div class="trading-product__title-container">
+              <% @data.fetch(:markets).each do |market| %>
+                  <% if market.fetch(:id) == @data.fetch(:current_market).fetch(:id) %>
+                  <p class="trading-product__title text--red red-after">0.00</p>
+                  <% break %>
+                  <% end %>
+              <% end %>
+          </div>
+          <div class="trading-product__body-container">
+            <p class="trading-product__value">24h Price</p>
+          </div>
+        </div>
+        <div class="trading-product__column trading-product__column--24h-volume">
+          <div class="trading-product__title-container">
+            <p class="trading-product__title">0.00<span class="trading-product__title--extra trading-product__extra-info">BTC</span></p>
+          </div>
+          <div class="trading-product__body-container">
+            <p class="trading-product__value">24h Volume</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--End of trading product-->
+
+    <!--Chart component-->
     <%= render partial: 'candlestick' %>
-    <%= render partial: 'range_switch' %>
-    <%= render partial: 'indicator_switch' %>
+    
+    <!--End Of chart component-->
+
+    <!--Order list-->
+    <%= render partial: 'market_trades' %>
+    <!--End Of Order list-->
+  </div>
+  <div class="side side--right">
+    <!--Order book-->
     <%= render partial: 'order_book' %>
-    <%= render partial: 'depths' %>
-    <%= render partial: 'ticker' %>
-    <%= render partial: 'ask_entry', locals: { market: @data.fetch(:current_market) } %>
-    <%= render partial: 'bid_entry', locals: { market: @data.fetch(:current_market) } %>
+    
+    <!--End Of Order book-->
+
+    <!--Order history-->
     <%= render partial: 'my_orders' %>
+    
+    <!--End of order history-->
+
+    <!--Buy Sell-->
+    <div class="form exchange__buy-sell">
+      <div class="form__header">
+        <div class="select-menu-container">
+          <div class="select-menu invisible--mobile">
+            <div class="select-menu__item select-menu__item--active" onclick="selectDropdownItem('buy-sell', this)">Sell</div>
+            <div class="select-menu__item" onclick="selectDropdownItem('buy-sell',this)">Buy</div>
+          </div>
+          <div class="select-dropdown-menu invisible--tablet invisible--desktop">
+            <div onclick="toggleShow('buy-sell')" class="select-dropdown-menu__info">Buy</div>
+            <div id="buy-sell-dropdown-id" class="select-dropdown-menu__list">
+              <div onclick="selectDropdownItem('buy-sell', 'buy')" class="select-dropdown-menu__list-item">Sell</div>
+              <div onclick="selectDropdownItem('buy-sell', 'sell')" class="select-dropdown-menu__list-item">Buy</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="buy-sell__settings-row">
+        <div class="buy-sell__wallet-container"><i class="icon icon-wallet buy-sell__wallet-icon"></i>
+          <div class="buy-sell__settings-text buy-sell__settings-text--main">Wallet</div>
+        </div>
+        <p class="buy-sell__settings-text">0.00<span class="buy-sell__settings-text--extra">USD</span></p>
+      </div>
+
+      
+      <%= render partial: 'ask_entry', locals: { market: @data.fetch(:current_market) } %>
+      <%= render partial: 'bid_entry', locals: { market: @data.fetch(:current_market) } %>
+      </div>
+
+      
+    </div>
+    <!--End of Buy Sell-->
   </div>
 </div>
-<!-- 
-<div class="vlb-bg pt25pb25">
-    <div class="s-content">
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col-xs-9">
-            <div class="rb7 p25 w-bg">
-              <div class="cf mb25">
-                <div class="fs16 b-color fw700 t-up fl">
-                  ETH/BTC dinamic
-                </div>
-                <div class="chart" style="height:447px;">
-                  <%= render partial: 'candlestick' %>
-                  <%= render partial: 'range_switch' %>
-                  <%= render partial: 'indicator_switch' %>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-xs-3">
-            <div class="curr-box">
-              <div class="curr-but-box">
-                <%= render partial: 'market_list' %>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="pt25 pb25">
-    <div class="s-content">
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col-xs-3">
-            <%= render partial: 'bid_entry', locals: { market: @data.fetch(:current_market) } %>
-            <div class="g-h-gradient t-b-line"></div>
-            <div class="b-t-bg pt11 pb12 pl20 b-color fw700 t-up fs16">
-              Buy ETH
-            </div>
-            <div class="p20">
-
-            </div>
-          </div>
-          <div class="col-xs-3">
-            <%= render partial: 'ask_entry', locals: { market: @data.fetch(:current_market) } %>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="vlb-bg pt25 pb25">
-    <div class="s-content">
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col-xs-4">
-            <%= render partial: 'order_book' %>
-          </div>
-          <div class="col-xs-4">
-            <%= render partial: 'order_ask_book' %>
-          </div>
-          <div class="col-xs-4">
-            <%= render partial: 'my_orders' %>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="pt25 pb25">
-    <div class="s-content">
-      <%= render partial: 'market_trades' %>
-    </div>
-  </div>
-
-  -->

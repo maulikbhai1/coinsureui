@@ -1,37 +1,52 @@
-<div id="indicator_switch_wrapper" class="switch">
-  <ul class="list-inline">
-    <li>
-      <ul id="type_switch" class="indicator_switch list-inline" data-x="candlestick">
-        <li class="text-center">
+<div id="indicator_switch_wrapper" class="select-menu-container">
+  <ul class="select-menu invisible--mobile" style="margin:0px;padding:0px;">
+    <li style="list-style-type: none;" class="select-menu__item">
+      <ul id="type_switch" class="select-menu indicator_switch list-inline" data-x="candlestick" style="margin:0px;padding:0px;">
+        <li class="text-center select-menu__item" style="list-style-type: none;">
           <a class="hand-point" data-x="candlestick" href="#"><%= t('chart.candlestick') %></a>
         </li>
-        <li class="text-center">
+        <li class="text-center select-menu__item" style="list-style-type: none;">
           <a class="hand-point" data-x="close" href="#"><%= t('chart.line') %></a>
         </li>
-        <li class="text-center">
+        <li class="text-center select-menu__item" style="list-style-type: none;">
           <span> | </span>
         </li>
       </ul>
     </li>
-    <li>
-      <ul id="main_indicator_switch" class="indicator_switch list-inline" data-x="MA">
-        <li class="text-center">
+    <li style="list-style-type: none;" class="select-menu__item">
+      <ul id="main_indicator_switch" class="select-menu  indicator_switch list-inline" data-x="MA" style="margin:0px;padding:0px;">
+        <li class="text-center select-menu__item" style="list-style-type: none;">
           <a class="hand-point" data-x="MA" href="#">MA</a>
         </li>
-        <li class="text-center">
+        <li class="text-center select-menu__item" style="list-style-type: none;">
           <a class="hand-point" data-x="EMA" href="#">EMA</a>
         </li>
-        <li class="text-center">
+        <li class="text-center select-menu__item" style="list-style-type: none;">
           <span> | </span>
         </li>
       </ul>
     </li>
-    <li>
-      <ul id="indicator_switch" class="indicator_switch list-inline" data-x="MACD">
-        <li class="text-center">
+    <li style="list-style-type: none;" class="select-menu__item">
+      <ul id="indicator_switch" class="select-menu indicator_switch list-inline" data-x="MACD" style="margin:0px;padding:0px;">
+        <li class="text-center select-menu__item" style="list-style-type: none;">
           <a class="hand-point" data-x="MACD" href="#">MACD</a>
         </li>
       </ul>
     </li>
   </ul>
 </div>
+<!-- <div class="select-menu-container">
+  <div class="select-menu invisible--mobile">
+    <div class="select-menu__item select-menu__item--active" onclick="selectDropdownItem('chart-type', 'candle')">Candle</div>
+    <div class="select-menu__item" onclick="selectDropdownItem('chart-type', 'line')">Line</div>
+    <div class="select-menu__item" onclick="selectDropdownItem('chart-type', 'depth')">Depth</div>
+  </div>
+  <div class="select-dropdown-menu invisible--tablet invisible--desktop">
+    <div onclick="toggleShow('chart-type')" class="select-dropdown-menu__info">Candle</div>
+    <div id="chart-type-dropdown-id" class="select-dropdown-menu__list">
+      <div class="select-dropdown-menu__list-item" onclick="selectDropdownItem('chart-type', 'candle')">Candle</div>
+      <div class="select-dropdown-menu__list-item" onclick="selectDropdownItem('chart-type', 'line')">Line</div>
+      <div class="select-dropdown-menu__list-item" onclick="selectDropdownItem('chart-type', 'depth')">Depth</div>
+    </div>
+  </div>
+</div> -->

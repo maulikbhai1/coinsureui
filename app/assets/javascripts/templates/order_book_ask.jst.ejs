@@ -1,13 +1,8 @@
-<tr data-order="<%= index %>" data-price="<%= price %>" data-volume="<%= volume %>" class="<%= classes %>">
-  <td class="price col-xs-7 text-down"><div>
-    <%= formatter.mask_fixed_price(price) %>
-  </div></td>
-  <td class="volume col-xs-7"><div>
-    <%= formatter.mask_fixed_volume(volume) %>
-  </div>
-<g>Click here</g>
-</td>
-  <td class="amount col-xs-10"><div>
+<div data-order="<%= index %>" data-price="<%= price %>" data-volume="<%= volume %>" class="<%= classes %> form__column-container form__column-container-value">
+  <div class="form__column order-book__column form__column-value"><div>
     <%= formatter.amount(volume, price) %>
-  </div></td>
-</tr>
+  </div></div>
+  <div class="form__column order-book__column form__column-value"><div>
+    <%= formatter.mask_fixed_price(price) %>
+  </div></div>
+</div>

@@ -4,6 +4,5 @@ pusher = new Pusher gon.pusher.key,
   wsHost: gon.pusher.wsHost
   wsPort: gon.pusher.wsPort
   wssPort: gon.pusher.wssPort
-  disabledTransports: gon.pusher.disabledTransports
 
 window.pusher = pusher

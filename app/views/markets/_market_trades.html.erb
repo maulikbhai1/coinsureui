@@ -1,4 +1,4 @@
-<div id="market_trades_wrapper" class="has-right-dropdown">
+<!--<div  class="has-right-dropdown">
   <div class="dropdown-wrapper">
     <ul class="dropdown-menu">
       <li>
@@ -31,6 +31,43 @@
           <tbody></tbody>
         </table>
       </div>
+    </div>
+  </div>
+</div>-->
+<div id="market_trades_wrapper" class="form exchange__order-list">
+  <div class="form__header order-list__header">
+    <h2 class="title">Orders</h2>
+    <!--Select menu-->
+    <div class="select-menu-container">
+      <div class="select-menu invisible--mobile">
+        <div class="select-menu__item select-menu__item--active" onclick="selectDropdownItem('order-type',this)">Open</div>
+        <div class="select-menu__item" onclick="selectDropdownItem('order-type',this)">Filled</div>
+      </div>
+      <div class="select-dropdown-menu invisible--tablet invisible--desktop">
+        <div onclick="toggleShow('order-type')" class="select-dropdown-menu__info">Open</div>
+        <div id="order-type-dropdown-id" class="select-dropdown-menu__list">
+          <div onclick="selectDropdownItem('order-type')" class="select-dropdown-menu__list-item">Open</div>
+          <div onclick="selectDropdownItem('order-type')" class="select-dropdown-menu__list-item">Filled</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="market_trades" class="form__body order-list__body">
+    <div class="form__column-container order-list__column-container">
+      <div class="form__column order-list__column">Size</div>
+      <div class="form__column order-list__column">Filled</div>
+      <div class="form__column order-list__column">Price (USD)</div>
+      <div class="form__column order-list__column">Fee</div>
+      <div class="form__column order-list__column">Time</div>
+      <div class="form__column order-list__column">Status</div>
+    </div>
+    <div class="order-list__order-form-container">
+      <table class="table table-hover all-trades" style="width:100%;border-spacing:0px;">
+        <tbody></tbody>
+      </table>
+      <!-- <table class="table table-hover my-trades" style="width:100%;border-spacing:0px;">
+        <tbody></tbody>
+      </table> -->
     </div>
   </div>
 </div>

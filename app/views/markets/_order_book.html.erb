@@ -1,4 +1,4 @@
-<div id="order_book" class="panel panel-default">
+<!-- <div id="order_book" class="panel panel-default">
   <div class="panel-body panel-body-head">
     <div id="order_book_header" class="row">
       <div class="col-xs-12 col-left">
@@ -47,4 +47,97 @@
       </div>
     </div>
   </div>
-</div>
+</div> -->
+<div class="form exchange__order-book">
+      <div class="form__header">
+        <h2 class="title">Order Book</h2>
+      </div>
+      <!-- 
+      <div class="order-book__settings-row">
+          <div class="buy-sell__wallet-container">
+              <div class="order-book__column-wide"><p class="order-book__title">4.83<span class="trading-product__title--extra trading-product__extra-info">BTC</span></p></div>
+              <div class="order-book__column-small"><i class="icon icon-exchange trading-product__icon-exchange"></i></div>
+              <div class="order-book__column-wide"><p class="order-book__title">8,020.50<span class="trading-product__title--extra trading-product__extra-info">USD</span></p></div>
+          </div>
+      </div> -->
+      <div class="form__body order-book__body" style="min-height: 240px;">
+        <div class="order-book__order-form-container" style="width:50%; border-right:1px solid #151d2b">
+          <div id="order_book" class="panel panel-default">
+              <div class="panel-body panel-body-head">
+                  <div id="order_book_header">
+                  <div class="form__column-container order-book__column-container">
+                      <div class="form__column order-book__column">Amount</div>
+                      <div class="form__column order-book__column">BID</div>
+                  </div>
+                  <!-- <div class="col-xs-12">
+                      <div class="table form__column-container order-book__column-container">
+
+                          <div class="amount form__column order-book__column">
+                              Amount
+                          </div>
+                          <div class="volume form__column order-book__column">
+                              Volume
+                          </div>
+                          <div class="price form__column order-book__column">
+                              BID
+                          </div>
+
+                      </div>
+                  </div> -->
+
+                  </div>
+              </div>
+              <div class="panel-body panel-body-content">
+                  <div id="order_book_body" class="row">
+                  
+                    <div class="col-xs-12">
+                        <table class="table table-hover bids" style="width:100%;border-spacing:0px;"></table>
+                    </div>
+                    <div class="col-xs-12">
+                        
+                    </div>
+                  </div>
+              </div>
+          </div>
+        </div>
+        <div class="order-book__order-form-container" style="width:50%; border-right:1px solid #151d2b">
+          <div id="order_book" class="panel panel-default">
+              <div class="panel-body panel-body-head">
+                  <div id="order_book_header">
+                  <div class="form__column-container order-book__column-container">
+                      <div class="form__column order-book__column">ASK</div>
+                      <div class="form__column order-book__column">Amount</div>
+                  </div>
+                  <!-- <div class="col-xs-12">
+                      <div class="table form__column-container order-book__column-container">
+
+                          <div class="amount form__column order-book__column">
+                              Amount
+                          </div>
+                          <div class="volume form__column order-book__column">
+                              Volume
+                          </div>
+                          <div class="price form__column order-book__column">
+                              BID
+                          </div>
+
+                      </div>
+                  </div> -->
+
+                  </div>
+              </div>
+              <div class="panel-body panel-body-content">
+                  <div id="order_book_body" class="row">
+                  
+                    <div class="col-xs-12">
+                        <table class="table table-hover asks" style="width:100%;border-spacing:0px;"></table>
+                    </div>
+                    <div class="col-xs-12">
+                        
+                    </div>
+                  </div>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>

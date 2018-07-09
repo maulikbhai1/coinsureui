@@ -42,9 +42,6 @@
         color: #444;
         .price, .amount, .volume, g { color: #444; }
       }
-
-      .price, .amount, .volume { color: $main-gray; }
-
     }
   }
 
@@ -179,7 +176,7 @@
       height: $my-orders-height - $gutter-2x;
 
       .time, .price, .volume, .amount {
-        & > span { display: block; height: 16px; padding: 2px 0; color: $main-gray; }
+        & > span { display: block; height: 16px; padding: 2px 0; }
       }
 
       .empty-row {
@@ -247,9 +244,6 @@
         color: #444;
         .price, .amount, .volume, g { color: #444; }
       }
-
-      .price, .amount, .volume { color: $main-gray; }
-
     }
   }
 
@@ -327,7 +321,6 @@
 
     .all-trades tr td.my i { display: none; }
     .all-trades tr.mine td.my i { display: inline; }
-    .all-trades, .my-trades tr td { color: $main-gray; }
 
     .my-trades tbody {
       display: none;
@@ -385,7 +378,6 @@
       height: $my-orders-height - $gutter-2x;
 
       .time, .price, .volume, .amount {
-        color: $main-gray;
         & > span { display: block; height: 16px; padding: 2px 0; }
       }
 

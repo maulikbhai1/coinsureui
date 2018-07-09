@@ -111,12 +111,10 @@
     node.text(available)
 
   @priceAlertHide = (event) ->
-    @enableSubmit()
     @select('priceAlertSel').fadeOut ->
       $(@).text('')
 
   @priceAlertShow = (event, data) ->
-    @disableSubmit()
     @select('priceAlertSel')
       .hide().text(gon.i18n.place_order[data.label]).fadeIn()
 

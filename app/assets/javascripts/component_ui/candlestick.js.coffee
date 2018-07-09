@@ -47,12 +47,12 @@ COLOR_ON =
 # The trick is use invalid color code to make the line transparent
 COLOR_OFF =
   candlestick:
-    color: 'rgba(0,0,0,0)'
-    upColor: 'rgba(0,0,0,0)'
-    lineColor: 'rgba(0,0,0,0)'
-    upLineColor: 'rgba(0,0,0,0)'
+    color: 'invalid'
+    upColor: 'invalid'
+    lineColor: 'invalid'
+    upLineColor: 'invalid'
   close:
-    color: 'rgba(0,0,0,0)'
+    color: 'invalid'
 
 COLOR = {
   candlestick: _.extend({}, COLOR_OFF.candlestick),
@@ -274,7 +274,7 @@ INDICATOR = {MA: false, EMA: false}
           id: 'candlestick'
           name: gon.i18n.chart.candlestick
           type: "candlestick"
-          data: @formatCandlestickData data['candlestick']
+          data: data['candlestick']
           showInLegend: false
         }, COLOR['candlestick']),
         _.extend({
@@ -384,12 +384,6 @@ INDICATOR = {MA: false, EMA: false}
   @formatPointArray = (point) ->
     x: point[0], open: point[1], high: point[2], low: point[3], close: point[4]
 
-  @formatCandlestickData = (data) ->
-    formatedData = []
-    for d in data
-      formatedData.push({x: d[0], open: d[1], high: d[2], low: d[3], close: d[4]})
-    formatedData
-
   @createPointOnSeries = (chart, i, px, point) ->
     chart.series[i].addPoint(point, true, true)
     #last = chart.series[i].points[chart.series[i].points.length-1]
@@ -428,13 +422,13 @@ INDICATOR = {MA: false, EMA: false}
   @updateByTrades = (event, data) ->
     chart = @$node.find('#candlestick_chart').highcharts()
 
+    # if @liveRange(chart)
+    #   @process(chart, data)
     if chart.series[0].points.length > 0
       if @liveRange(chart)
         @process(chart, data)
       else
         @running = false
-    else
-      @trigger "switch::range_switch::init" # reintialize chart when having no data
 
   @liveRange = (chart) ->
     p1 = chart.series[0].points[ chart.series[0].points.length-1 ].x
