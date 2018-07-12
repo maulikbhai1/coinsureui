@@ -1,80 +1,44 @@
-<div class="form__body order-book__body" style="min-height: 240px;">
-        <div class="order-book__order-form-container" style="width:50%; border-right:1px solid #151d2b">
-          <div id="order_book" class="panel panel-default">
-              <div class="panel-body panel-body-head">
-                  <div id="order_book_header">
-                  <div class="form__column-container order-book__column-container">
-                      <div class="form__column order-book__column">Amount</div>
-                      <div class="form__column order-book__column">BID</div>
-                  </div>
-                  <!-- <div class="col-xs-12">
-                      <div class="table form__column-container order-book__column-container">
-
-                          <div class="amount form__column order-book__column">
-                              Amount
-                          </div>
-                          <div class="volume form__column order-book__column">
-                              Volume
-                          </div>
-                          <div class="price form__column order-book__column">
-                              BID
-                          </div>
-
-                      </div>
-                  </div> -->
-
-                  </div>
-              </div>
-              <div class="panel-body panel-body-content">
-                  <div id="order_book_body" class="row">
-                  
-                    <div class="col-xs-12">
-                        <table class="table table-hover bids" style="width:100%;border-spacing:0px;"></table>
-                    </div>
-                    <div class="col-xs-12">
-                        
-                    </div>
-                  </div>
-              </div>
-          </div>
-        </div>
-        <div class="order-book__order-form-container" style="width:50%; border-right:1px solid #151d2b">
-          <div id="order_book" class="panel panel-default">
-              <div class="panel-body panel-body-head">
-                  <div id="order_book_header">
-                  <div class="form__column-container order-book__column-container">
-                      <div class="form__column order-book__column">ASK</div>
-                      <div class="form__column order-book__column">Amount</div>
-                  </div>
-                  <!-- <div class="col-xs-12">
-                      <div class="table form__column-container order-book__column-container">
-
-                          <div class="amount form__column order-book__column">
-                              Amount
-                          </div>
-                          <div class="volume form__column order-book__column">
-                              Volume
-                          </div>
-                          <div class="price form__column order-book__column">
-                              BID
-                          </div>
-
-                      </div>
-                  </div> -->
-
-                  </div>
-              </div>
-              <div class="panel-body panel-body-content">
-                  <div id="order_book_body" class="row">
-                  
-                    <div class="col-xs-12">
-                        <table class="table table-hover asks" style="width:100%;border-spacing:0px;"></table>
-                    </div>
-                    <div class="col-xs-12">
-                        
-                    </div>
-                  </div>
-              </div>
-          </div>
-        </div>
+<!--<div id="my_orders_wrapper" class="has-left-dropdown">
+  <div class="dropdown-wrapper">
+    <ul class="dropdown-menu">
+      <li>
+        <%= link_to t('.clear_bids_html'), "/markets/#{@data.fetch(:current_market).fetch(:id)}/order_bids/clear", remote: true, method: :post, data: {confirm: t('.confirm_clear_bids')} %>
+      </li>
+      <li>
+        <%= link_to t('.clear_asks_html'), "/markets/#{@data.fetch(:current_market).fetch(:id)}/order_asks/clear", remote: true, method: :post, data: {confirm: t('.confirm_clear_asks')} %>
+      </li>
+      <li>
+        <%= link_to t('.clear_all_html'),  "/markets/#{@data.fetch(:current_market).fetch(:id)}/orders/clear", remote: true, method: :post, data: {confirm: t('.confirm_clear_all')} %>
+      </li>
+    </ul>
+  </div>
+  <div id="my_orders" class="panel panel-default">
+    <div class="panel-body panel-body-content">
+      <div class="empty-row">
+        <%= t('.no_open_orders') %>
       </div>
+      <table class="table table-hover">
+        <tbody></tbody>
+      </table>
+    </div>
+    <%= render partial: 'mask' %>
+  </div>
+</div>
+-->
+<div class="form exchange__order-history">
+  <div class="form__header">
+    <h2 class="title">Order History</h2>
+  </div>
+  <div class="form__body order-history__body" style="min-height:208px;">
+    <div class="form__column-container order-history__column-container">
+      <div class="form__column order-history__column">Size</div>
+      <div class="form__column order-history__column">Price (USD)</div>
+      <div class="form__column order-history__column">Time</div>
+    </div>
+    <div id="my_orders" class="order-history__order-form-container" style="min-height:175px;">
+      <table class="table table-hover" style="width:100%;border-spacing:0px;">
+        <tbody style="width:100%;"></tbody>
+      </table>
+    </div>
+  </div>
+</div>
