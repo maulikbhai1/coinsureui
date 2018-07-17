@@ -1,6 +1,6 @@
 @ItemListMixin = ->
   @attributes
-    tbody: 'table > tbody'
+    tbody: '.order-history'
     empty: '.empty-row'
 
   @checkEmpty = (event, data) ->

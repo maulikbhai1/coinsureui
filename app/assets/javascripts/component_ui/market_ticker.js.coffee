@@ -1,8 +1,8 @@
 window.MarketTickerUI = flight.component ->
   @attributes
-    askSelector: '.ask .price'
-    bidSelector: '.bid .price'
-    lastSelector: '.last .price'
+    askSelector: '.ask.price'
+    bidSelector: '.bid.price'
+    lastSelector: '.last.price'
     priceSelector: '.price'
 
   @updatePrice = (selector, price, trend) ->
