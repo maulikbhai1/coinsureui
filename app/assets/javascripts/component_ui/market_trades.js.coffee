@@ -3,14 +3,14 @@ window.MarketTradesUI = flight.component ->
 
   @attributes
     defaultHeight: 156
-    tradeSelector: 'tr'
-    newTradeSelector: 'tr.new'
+    tradeSelector: 'div'
+    newTradeSelector: 'div.new'
     allSelector: 'a.all'
     mySelector: 'a.my'
-    allTableSelector: 'table.all-trades tbody'
-    myTableSelector: 'table.my-trades tbody'
-    newMarketTradeContent: 'table.all-trades tr.new div'
-    newMyTradeContent: 'table.my-trades tr.new div'
+    allTableSelector: '.all-trades'
+    myTableSelector: '.my-trades'
+    newMarketTradeContent: '.all-trades div.new div'
+    newMyTradeContent: '.my-trades div.new div'
     tradesLimit: 80
 
   @showAllTrades = (event) ->
@@ -29,7 +29,7 @@ window.MarketTradesUI = flight.component ->
     @marketTrades = @marketTrades.concat data.trades
 
   @clearMarkers = (table) ->
-    table.find('tr.new').removeClass('new')
+    table.find('div.new').removeClass('new')
     table.find('tr').slice(@attr.tradesLimit).remove()
 
   @notifyMyTrade = (trade) ->

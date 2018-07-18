@@ -1,8 +1,8 @@
 @OrderBookUI = flight.component ->
   @attributes
     bookLimit: 30
-    askBookSel: 'table.asks'
-    bidBookSel: 'table.bids'
+    askBookSel: '.order-book-ask'
+    bidBookSel: '.order-book-bid'
     seperatorSelector: 'table.seperator'
     fade_toggle_depth: '#fade_toggle_depth'
 
@@ -28,11 +28,11 @@
       row.addClass('text-down')
 
     row.data('volume', order[1])
-    row.find('td.volume').html(formatter.mask_fixed_volume(order[1]))
-    row.find('td.amount').html(formatter.amount(order[1], order[0]))
+    row.find('.volume').html(formatter.mask_fixed_volume(order[1]))
+    row.find('.amount').html(formatter.amount(order[1], order[0]))
 
   @mergeUpdate = (bid_or_ask, book, orders, template) ->
-    rows = book.find('tr')
+    rows = book.find('div')
 
     i = j = 0
     while(true)
@@ -67,12 +67,12 @@
         break
 
   @clearMarkers = (book) ->
-    book.find('tr.new').removeClass('new')
-    book.find('tr.text-up').removeClass('text-up')
-    book.find('tr.text-down').removeClass('text-down')
+    book.find('div.new').removeClass('new')
+    book.find('div.text-up').removeClass('text-up')
+    book.find('div.text-down').removeClass('text-down')
 
-    obsolete = book.find('tr.obsolete')
-    obsolete_divs = book.find('tr.obsolete div')
+    obsolete = book.find('div.obsolete')
+    obsolete_divs = book.find('div.obsolete div')
     obsolete_divs.slideUp 'slow', ->
       obsolete.remove()
 
@@ -81,7 +81,7 @@
 
     @mergeUpdate bid_or_ask, book, orders, JST["templates/order_book_#{bid_or_ask}"]
 
-    book.find("tr.new div").slideDown('slow')
+    book.find("div.new div").slideDown('slow')
     setTimeout =>
       @clearMarkers(@select("#{bid_or_ask}BookSel"))
     , 900
@@ -107,12 +107,12 @@
     @on @select('fade_toggle_depth'), 'click', =>
       @trigger 'market::depth::fade_toggle'
 
-    $('.asks').on 'click', 'tr', (e) =>
-      i = $(e.target).closest('tr').data('order')
+    $('.asks').on 'click', 'div', (e) =>
+      i = $(e.target).closest('div').data('order')
       @placeOrder $('#bid_entry'), _.extend(@computeDeep(e, gon.asks), type: 'ask')
       @placeOrder $('#ask_entry'), {price: BigNumber(gon.asks[i][0]), volume: BigNumber(gon.asks[i][1])}
 
-    $('.bids').on 'click', 'tr', (e) =>
-      i = $(e.target).closest('tr').data('order')
+    $('.bids').on 'click', 'div', (e) =>
+      i = $(e.target).closest('div').data('order')
       @placeOrder $('#ask_entry'), _.extend(@computeDeep(e, gon.bids), type: 'bid')
       @placeOrder $('#bid_entry'), {price: BigNumber(gon.bids[i][0]), volume: BigNumber(gon.bids[i][1])}

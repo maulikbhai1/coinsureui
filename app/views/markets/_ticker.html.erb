@@ -1,19 +1,19 @@
-<div id="ticker" class="panel panel-default">
-  <div class="panel-body">
-    <div class="bid col-xs-7 pull-left">
-      <div class="hint">
-        <%= t('.bid') %>
-      </div>
-      <div class="price"></div>
+<div id="ticker" class="order-book__settings-row">
+  <div class="buy-sell__wallet-container">
+    <div class="order-book__column-wide">
+      <p class="order-book__title">
+        <span class="bid price"></span>
+        <span class="trading-product__title--extra trading-product__extra-info"><%= @data.fetch(:current_market).fetch(:bid_unit) %></span>
+      </p>
     </div>
-    <div class="last col-xs-10">
-      <div class="price"></div>
+    <div class="order-book__column-small">
+        <i class="icon icon-exchange trading-product__icon-exchange"></i>
     </div>
-    <div class="ask col-xs-7 pull-right">
-      <div class="hint">
-        <%= t('.ask') %>
-      </div>
-      <div class="price"></div>
+    <div class="order-book__column-wide">
+      <p class="order-book__title">
+        <span class="ask price"></span>
+        <span class="trading-product__title--extra trading-product__extra-info"><%= @data.fetch(:current_market).fetch(:ask_unit) %></span>
+      </p>
     </div>
   </div>
 </div>
