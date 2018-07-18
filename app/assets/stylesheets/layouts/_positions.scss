@@ -160,7 +160,7 @@
     }
   }
 
-  #my_orders_wrapper {
+  #order_history_wrapper {
     .dropdown-wrapper {
       position: absolute;
       height: $my-orders-height;
@@ -168,7 +168,7 @@
     }
   }
 
-  #my_orders {
+  #order_history {
     width: $my-orders-width; height: $my-orders-height;
     bottom: $gutter-2x + $entry-height; left: $gutter;
 
@@ -362,7 +362,7 @@
     }
   }
 
-  #my_orders_wrapper {
+  #order_history_wrapper {
     .dropdown-wrapper {
       position: absolute;
       height: $my-orders-height;
@@ -370,7 +370,7 @@
     }
   }
 
-  #my_orders {
+  #order_history {
     width: $my-orders-width; height: $my-orders-height;
     bottom: $gutter-2x + $entry-height; right: $gutter;
 

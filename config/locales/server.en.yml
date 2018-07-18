@@ -101,7 +101,7 @@ en:
       locked: Freeze
       view_all_accounts: "View All"
       hide_all_accounts: "Hide Other"
-    my_orders:
+    order_history:
       orders_wait: Latest Orders
       orders_done: Completed Orders
       orders_cancel: Cancel Orders

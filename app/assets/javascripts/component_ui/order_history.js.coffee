@@ -1,4 +1,4 @@
-@MyOrdersUI = flight.component ->
+@OrderHistoryUi = flight.component ->
   flight.compose.mixin this, [ItemListMixin]
 
   @getTemplate = (order) -> $(JST["templates/order_active"](order))

@@ -21,7 +21,7 @@ BORDER_WIDTH = 1
       markets_h      = $('#market_list').height() + BORDER_WIDTH
       entry_h        = $('#ask_entry').height() + 2*BORDER_WIDTH
       depths_h       = $('#depths_wrapper').height() + 2*BORDER_WIDTH
-      my_orders_h    = $('#my_orders').height() + 2*BORDER_WIDTH
+      my_orders_h    = $('#order_history').height() + 2*BORDER_WIDTH
       ticker_h       = $('#ticker').height() + 2*BORDER_WIDTH
 
       # Adjust heights first. Because scrollbar may be removed after heights
@@ -38,7 +38,7 @@ BORDER_WIDTH = 1
       $('#order_book .panel-body-content').height($('#order_book').height()-panel_table_header_high)
 
       trades_h = window_h - navbar_h - markets_h - gutter_3x - BORDER_WIDTH
-      $('#market_trades').height('33%')
+      # $('#market_trades').height('33%')
       # $('#market_trades .panel').height(trades_h - 2*BORDER_WIDTH)
       # $('#market_trades .panel-body-content').height(trades_h - 2*BORDER_WIDTH - panel_table_header_high - 2*PANEL_PADDING)
 
