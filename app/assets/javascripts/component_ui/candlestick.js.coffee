@@ -19,7 +19,7 @@ DATETIME_LABEL_FORMAT =
   year: '%Y'
 
 RANGE_DEFAULT =
-  fill: 'none',
+  fill: '#ff0000',
   stroke: 'none',
   'stroke-width': 0,
   r: 8,
@@ -38,7 +38,7 @@ RANGE_DEFAULT =
 COLOR_ON =
   candlestick:
     color: '#990f0f'
-    upColor: '#000000'
+    upColor: '#00ff00'
     lineColor: '#cc1414'
     upLineColor: '#49c043'
   close:
@@ -189,7 +189,7 @@ INDICATOR = {MA: false, EMA: false}
           turboThreshold: 0
           followPointer: true
           color: '#990f0f'
-          upColor: '#000000'
+          upColor: '#ff0000'
           lineColor: '#cc1414'
           upLineColor: '#49c043'
           dataGrouping: dataGrouping

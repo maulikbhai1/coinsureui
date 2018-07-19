@@ -5,11 +5,10 @@
     @reqK gon.market.id, data['x']
 
   @reqK = (market, minutes, limit = 768) ->
-    console.log 'aaaaaa'
     tid = if gon.trades.length > 0 then gon.trades[0].tid else 0
     tid = @last_tid+1 if @last_tid
     # url = "/api/v2/k_with_pending_trades.json?market=#{market}&limit=#{limit}&period=#{minutes}&trade_id=#{tid}"
-    url = "https://coopex.market/api/v2/k_with_pending_trades.json?market=#{market}&limit=#{limit}&period=#{minutes}&trade_id=#{tid}"
+    url = "http://ec2-34-213-160-216.us-west-2.compute.amazonaws.com/api/v2/k_with_pending_trades.json?market=#{market}&limit=#{limit}&period=#{minutes}&trade_id=#{tid}"
     $.getJSON url, (data) =>
       console.log(data)
       @handleData(data, minutes)
