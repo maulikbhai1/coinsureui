@@ -21,25 +21,21 @@
   @updateRow = (row, order, index, v1, v2) ->
     row.data('order', index)
     return if v1.equals(v2)
-
     if v2.greaterThan(v1)
       row.addClass('text-up')
     else
       row.addClass('text-down')
-
     row.data('volume', order[1])
     row.find('.volume').html(formatter.mask_fixed_volume(order[1]))
     row.find('.amount').html(formatter.amount(order[1], order[0]))
 
   @mergeUpdate = (bid_or_ask, book, orders, template) ->
     rows = book.find('div')
-
     i = j = 0
     while(true)
       row = rows[i]
       order = orders[j]
       $row = $(row)
-
       if row && order
         p1 = new BigNumber($row.data('price'))
         v1 = new BigNumber($row.data('volume'))
@@ -78,9 +74,8 @@
 
   @updateOrders = (table, orders, bid_or_ask) ->
     book = @select("#{bid_or_ask}BookSel")
-
+    book.html ""
     @mergeUpdate bid_or_ask, book, orders, JST["templates/order_book_#{bid_or_ask}"]
-
     book.find("div.new div").slideDown('slow')
     setTimeout =>
       @clearMarkers(@select("#{bid_or_ask}BookSel"))
@@ -116,3 +111,4 @@
       i = $(e.target).closest('div').data('order')
       @placeOrder $('#ask_entry'), _.extend(@computeDeep(e, gon.bids), type: 'bid')
       @placeOrder $('#bid_entry'), {price: BigNumber(gon.bids[i][0]), volume: BigNumber(gon.bids[i][1])}
+  
