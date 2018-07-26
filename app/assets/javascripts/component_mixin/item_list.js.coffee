@@ -1,6 +1,6 @@
 @ItemListMixin = ->
   @attributes
-    tbody: '.order-history'
+    tbody: 'table > tbody'
     empty: '.empty-row'
 
   @checkEmpty = (event, data) ->
@@ -28,6 +28,7 @@
 
   @populate = (event, data) ->
     if not _.isEmpty(data.orders)
+      @select('tbody').html ""
       @addOrUpdateItem item for item in data.orders
 
     @checkEmpty()

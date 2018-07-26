@@ -1,4 +1,8 @@
 @MarketData = flight.component ->
+  @attributes
+    bookLimit: 30
+    askBookSel: '.order-book-ask'
+    bidBookSel: '.order-book-bid'
 
   @load = (event, data) ->
     @trigger 'market::candlestick::request'
@@ -8,9 +12,11 @@
     tid = if gon.trades.length > 0 then gon.trades[0].tid else 0
     tid = @last_tid+1 if @last_tid
     url = "https://coopex.market/api/v2/k_with_pending_trades.json?market=#{market}&limit=#{limit}&period=#{minutes}&trade_id=#{tid}"
+    order_book_url = "https://coopex.market/api/v2/depth.json?market=#{market}"
     $.getJSON url, (data) =>
-      console.log(data)
       @handleData(data, minutes)
+    $.getJSON order_book_url, (order_book_data) =>
+      @handleOrderBookData(order_book_data, minutes)
 
   @checkTrend = (pre, cur) ->
     # time, open, high, low, close, volume
@@ -104,6 +110,7 @@
 
     @deliverTrades 'market::candlestick::response'
 
+  
   @deliverTrades = (event) ->
     @processTrades()
 
@@ -147,3 +154,11 @@
     @on document, 'market::trades', @cacheTrades
     @on document, 'switch::range_switch', @load
     @on document, 'market::candlestick::created', @startDeliver
+  
+  @handleOrderBookData = (data) ->
+    if gon.asks[gon.asks.length-1][0] == data.asks[data.asks.length-1][0] ||  gon.asks[gon.asks.length-1][1] != data.asks[data.asks.length-1][1] || 
+    gon.bids[gon.bids.length-1][0] != data.bids[data.bids.length-1][0] || gon.bids[gon.bids.length-1][1] != data.bids[data.bids.length-1][1]
+      @asks = data.asks
+      @bids = data.bids
+      @trigger 'market::order_book::update', asks: @asks, bids: @bids
+      

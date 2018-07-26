@@ -15,7 +15,7 @@
         @removeItem order.id
 
   @cancelOrder = (event) ->
-    tr = $(event.target).parents('tr')
+    tr = $(event.target).parents('.parent_tr')
     if confirm(formatter.t('place_order')['confirm_cancel'])
       $.ajax
         url:     formatter.market_url gon.market.id, tr.data('id')

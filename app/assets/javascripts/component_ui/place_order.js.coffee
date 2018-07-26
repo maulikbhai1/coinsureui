@@ -59,9 +59,19 @@
     @cleanMsg()
     @select('successSel').append(JST["templates/hint_order_success"]({msg: data.message})).show()
     @resetForm(event)
+    @order_book_url = "https://coopex.market/api/v2/depth.json?market=#{gon.market.id}"
+    setTimeout =>
+      @updateOrderBook(@order_book_url)
+    , 1000
     window.sfx_success()
     @enableSubmit()
 
+  @updateOrderBook = (url) ->
+    $.getJSON "https://coopex.market/markets/#{gon.market.id}.json", (market_data) =>
+      @trigger 'market::order_book::update', asks: market_data.gon_variables.asks, bids: market_data.gon_variables.bids
+      gon.my_orders = market_data.gon_variables.my_orders
+      @trigger 'order::wait::populate', orders: market_data.gon_variables.my_orders
+      
   @handleError = (event, data) ->
     @cleanMsg()
     ef_class = 'shake shake-constant hover-stop'
