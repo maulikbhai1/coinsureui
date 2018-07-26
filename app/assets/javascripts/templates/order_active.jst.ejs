@@ -1,6 +1,6 @@
 <% trade_state = (origin_volume == volume) ? 'new' : 'partial' %>
 
-<div data-id="<%= id %>" data-kind="<%= kind %>" class="order <%= kind %> form__column-container form__column-container-value">
+<div data-id="<%= id %>" data-kind="<%= kind %>" class="order <%= kind %> form__column-container form__column-container-value parent_tr">
   <div class="form__column order-history__column form__column-value">
       <span><%= formatter.mask_fixed_volume(volume) %></span>
   </div>

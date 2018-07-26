@@ -82,7 +82,12 @@
         </div>
         <div class="trading-product__column trading-product__column--24h-volume">
           <div class="trading-product__title-container">
-            <p class="trading-product__title">0.00<span class="trading-product__title--extra trading-product__extra-info">BTC</span></p>
+            <% @data.fetch(:markets).each do |market| %>
+                <% if market.fetch(:id) == @data.fetch(:current_market).fetch(:id) %>
+                    <p class="trading-product__title"><%= market.fetch(:ticker).fetch(:volume) %><span class="trading-product__title--extra trading-product__extra-info"><%= @data.fetch(:current_market).fetch(:ask_unit) %></span></p>
+                    <% break %>
+                <% end %>
+            <% end %>
           </div>
           <div class="trading-product__body-container">
             <p class="trading-product__value">24h Volume</p>
