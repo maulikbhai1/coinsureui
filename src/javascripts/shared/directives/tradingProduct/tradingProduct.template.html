@@ -1,0 +1,57 @@
+<div class="form">
+    <div class="form__header">
+        <h2 class="title">Trading Product</h2>
+    </div>
+    <div class="form__body trading-product">
+        <div class="trading-product__column trading-product__column--market">
+            <div class="trading-product__title-container">
+                <p class="trading-product__title">BTC</p><i class="icon icon-exchange trading-product__icon-exchange"></i>
+                <p class="trading-product__title">USD</p>
+            </div>
+            <div class="trading-product__body-container">
+                <p ng-click="vm.toggleAssetInfo()" class="trading-product__value"><span class="trading-product__market">Market</span></p>
+                <div ng-class="{'trading-dropdown--open': vm.isShowAssetInfo, 'trading-dropdown--hide': !vm.isShowAssetInfo}" class="trading-dropdown form__body">
+                    <div class="trading-dropdown__backround"></div>
+                    <div class="trading-dropdown__main-block">
+                        <div class="form__column-container">
+                            <div class="form__column trading-dropdown__column">Asset</div>
+                            <div class="form__column trading-dropdown__column">Last Price</div>
+                            <div class="form__column trading-dropdown__column">Change</div>
+                        </div>
+                        <div class="trading-dropdown__form-container">
+                            <div ng-repeat="assetChange in vm.assetChangeList" class="form__column-container form__column-container-value trading-dropdown__row">
+                                <div class="form__column trading-dropdown__column trading-dropdown__column-value form__column-value">{{ assetChange.asset }}</div>
+                                <div class="form__column trading-dropdown__column trading-dropdown__column-value form__column-value">{{ assetChange.lastPrice }}</div>
+                                <div class="form__column trading-dropdown__column trading-dropdown__column-value form__column-value">{{ assetChange.change }}%</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="trading-product__column trading-product__column--trade-price">
+            <div class="trading-product__title-container">
+                <p class="trading-product__title">8,885.93<span class="trading-product__title--extra trading-product__extra-info">USD</span></p>
+            </div>
+            <div class="trading-product__body-container">
+                <p class="trading-product__value">Last Trade Price</p>
+            </div>
+        </div>
+        <div class="trading-product__column trading-product__column--24h-price">
+            <div class="trading-product__title-container">
+                <p class="trading-product__title text--red">0.84%</p><i ng-class="{ 'icon-arrow--up': false }" class="icon icon-arrow icon-arrow--down"></i>
+            </div>
+            <div class="trading-product__body-container">
+                <p class="trading-product__value">24h Price</p>
+            </div>
+        </div>
+        <div class="trading-product__column trading-product__column--24h-volume">
+            <div class="trading-product__title-container">
+                <p class="trading-product__title">8,087<span class="trading-product__title--extra trading-product__extra-info">BTC</span></p>
+            </div>
+            <div class="trading-product__body-container">
+                <p class="trading-product__value">24h Volume</p>
+            </div>
+        </div>
+    </div>
+</div>

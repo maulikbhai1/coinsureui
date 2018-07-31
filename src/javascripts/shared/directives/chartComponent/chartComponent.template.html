@@ -1,0 +1,12 @@
+<div class="form">
+    <div class="form__header">
+        <h2 class="title">Charts</h2>
+    </div>
+    <div class="form__body charts-settings__body">
+        <div class="charts-settings__container">
+            <select-menu-component item-list="vm.chartTypeList" on-select-item="vm.changeChartType(item)"></select-menu-component>
+            <select-menu-component item-list="vm.periodList" on-select-item="vm.changePeriod(item)" use-mobile-view="true"></select-menu-component>
+        </div>
+        <div class="charts-settings__chart-container"></div>
+    </div>
+</div>

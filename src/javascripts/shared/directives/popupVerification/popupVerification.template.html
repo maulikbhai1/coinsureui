@@ -1,0 +1,28 @@
+<div class="popup__module" ng-show="vm.verificationType">
+    <div class="popup__form">
+        <div class="popup__header" ng-switch="vm.verificationType">
+            <p class="popup__banner" ng-switch-when="1">Private Key Verification</p>
+            <p class="popup__banner" ng-switch-when="2">Keystore File Verification</p>
+            <p class="popup__banner" ng-switch-when="3">Hardware Wallet Verification</p>
+            <i class="icon icon-close popup__close-icon" ng-click="vm.close()"></i>
+        </div>
+        <div class="popup__body">
+            <div ng-switch="vm.verificationType">
+                <p class="popup__title" ng-switch-when="1">Private key</p>
+                <p class="popup__title" ng-switch-when="2">Select Wallet file</p>
+                <p class="popup__title" ng-switch-when="3">Unlock Hardware Wallet</p>
+            </div>
+            <div ng-switch="vm.verificationType">
+                <p class="popup__description" ng-switch-when="1">Enter your private key below.</p>
+                <p class="popup__description" ng-switch-when="2">Click on the button below and select the wallet file from your computer.</p>
+                <p class="popup__description" ng-switch-when="3">Export public key and unlock wallet?</p>
+            </div>
+            <label class="fake-input" ng-show="vm.verificationType === 1">3J9sEt8aax9GP5XE3</label>
+            <div class="popup__btn-container" ng-switch="vm.verificationType" ng-class="{'popup__btn-container--to-left': vm.verificationType === 2}">
+                <button class="btn btn--blue popup__btn" ng-switch-when="1">Unlock</button>
+                <button class="btn btn--blue btn--dark popup__btn" ng-switch-when="2">Select File</button>
+                <button class="btn btn--blue popup__btn" ng-switch-when="3">Export</button>
+            </div>
+        </div>
+    </div>
+</div>

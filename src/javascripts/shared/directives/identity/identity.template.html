@@ -1,0 +1,118 @@
+<div class="popup__module">
+    <div class="popup__form">
+        <div class="popup__header">
+            <p class="popup__banner">Enter Identity Details</p>
+            <i class="icon icon-close popup__close-icon" ng-click="vm.close()"></i>
+        </div>
+        <div class="popup__body">
+            <div class="identity__row">
+                <div class="input-block input-block--light identity__block--firstname">
+                    <div class="input-block__title input-block__title--big">First Name</div>
+                    <div class="input-block__field popup__input-field">
+                        <input placeholder="John" class="input-block__input"
+                               type="text" ng-model="vm.model.firstname"/>
+                    </div>
+                </div>
+
+                <div class="input-block input-block--light identity__block--lastname">
+                    <div class="input-block__title input-block__title--big">Last Name</div>
+                    <div class="input-block__field popup__input-field">
+                        <input placeholder="Doe" class="input-block__input"
+                               type="password" ng-model="vm.model.lastname"/>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="identity__delimiter">
+
+            <div class="identity__row">
+                <div class="input-block input-block--light identity__block--month">
+                    <div class="input-block__title input-block__title--big">Date of Birth</div>
+                    <div class="input-block__field popup__input-field">
+                        <custom-dropdown-component
+                                items="vm.monthList"
+                                current-value="vm.model.birthday.month"
+                                placeholder="'Month'">
+                        </custom-dropdown-component>
+                    </div>
+                </div>
+
+                <div class="input-block input-block--light identity__block--date">
+                    <div class="input-block__title input-block__title--big"></div>
+                    <div class="input-block__field popup__input-field">
+                        <input placeholder="Date" class="input-block__input"
+                               type="text" ng-model="vm.model.birthday.date"/>
+                    </div>
+                </div>
+
+                <div class="input-block input-block--light identity__block--year">
+                    <div class="input-block__title input-block__title--big"></div>
+                    <div class="input-block__field popup__input-field">
+                        <custom-dropdown-component
+                                items="vm.yearList"
+                                current-value="vm.model.birthday.year"
+                                placeholder="'Year'">
+                        </custom-dropdown-component>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="identity__delimiter">
+
+            <div class="identity__row">
+                <div class="input-block input-block--light identity__block--street">
+                    <div class="input-block__title input-block__title--big">Street Address</div>
+                    <div class="input-block__field popup__input-field">
+                        <input placeholder="Street" class="input-block__input"
+                               type="text" ng-model="vm.model.address.street"/>
+                    </div>
+                </div>
+
+                <div class="input-block input-block--light identity__block--city">
+                    <div class="input-block__title input-block__title--big">City</div>
+                    <div class="input-block__field popup__input-field">
+                        <input placeholder="City" class="input-block__input"
+                               type="text" ng-model="vm.model.address.city"/>
+                    </div>
+                </div>
+            </div>
+
+            <div class="identity__row">
+                <div class="input-block input-block--light identity__block--country">
+                    <div class="input-block__title input-block__title--big">Country</div>
+                    <div class="input-block__field popup__input-field">
+                        <custom-dropdown-component
+                                items="vm.countryList"
+                                current-value="vm.model.address.country"
+                                placeholder="'Country'"
+                                on-select-item="vm.selectCountry(index, item)">
+                        </custom-dropdown-component>
+                    </div>
+                </div>
+
+                <div class="input-block input-block--light identity__block--state">
+                    <div class="input-block__title input-block__title--big">State</div>
+                    <div class="input-block__field popup__input-field">
+                        <custom-dropdown-component
+                                items="vm.stateList"
+                                current-value="vm.model.address.state"
+                                placeholder="'State'">
+                        </custom-dropdown-component>
+                    </div>
+                </div>
+
+                <div class="input-block input-block--light identity__block--postal-code">
+                    <div class="input-block__title input-block__title--big">Postal Code</div>
+                    <div class="input-block__field popup__input-field">
+                        <input placeholder="Postal Code" class="input-block__input"
+                               type="text" ng-model="vm.model.address.postcode"/>
+                    </div>
+                </div>
+            </div>
+
+            <div class="popup__btn-container sign-up__manage-row">
+                <button class="btn btn--blue popup__btn sign-up__btn" ng-click="vm.save()">Save and Continue</button>
+            </div>
+        </div>
+    </div>
+</div>

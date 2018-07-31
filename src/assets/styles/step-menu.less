@@ -1,0 +1,52 @@
+.step-menu {
+  background: #eef2f8;
+  width: 100%;
+  height: 30px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  &__item {
+    .font-karla-bold();
+    font-size: 13px;
+    color: #27354e;
+    position: relative;
+
+    width: 33%;
+
+    text-align: center;
+    text-transform: uppercase;
+
+    &:after {
+      content: '';
+
+      position: absolute;
+      right: -4px;
+      top: 15%;
+
+      border: solid #a8b5cd;
+      border-width: 0 2px 2px 0;
+
+      display: inline-block;
+
+      padding: 4px;
+
+      transform: rotate(-45deg);
+    }
+
+    &:last-child {
+      &:after {
+        display: none;
+      }
+    }
+
+    &--active {
+      color: #0134ff;
+    }
+  }
+}

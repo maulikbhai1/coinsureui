@@ -1,0 +1,29 @@
+.desktop(@rules) {
+    @media only screen and (min-width: 1551px) {
+        @rules();
+    }
+}
+
+.middleDesktop(@rules) {
+    @media only screen and (min-width: 1366px) and (max-width: 1550.99px) {
+        @rules();
+    }
+}
+
+.smallDesktop(@rules) {
+    @media only screen and (min-width: 1050px) and (max-width: 1365.99px) {
+        @rules();
+    }
+}
+
+.tablet(@rules) {
+    @media only screen and (min-width: 768px) and (max-width: 1049.99px) {
+        @rules();
+    }
+}
+
+.mobile(@rules) {
+    @media only screen and (min-width: 300px) and (max-width: 767.99px) {
+        @rules();
+    }
+}

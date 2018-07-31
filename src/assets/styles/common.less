@@ -1,0 +1,169 @@
+html {
+  width: 100%;
+  height: 100%;
+
+  min-height: 100vh;
+
+  background-color: var(--backgroundColor);
+
+  margin: 0;
+  padding: 0;
+
+  -webkit-transform: translate3d(0, 0, 0);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+
+  overflow-x: hidden;
+
+  width: 100%;
+  height: auto;
+  min-height: 100%;
+
+  background-color: var(--backgroundColor);
+  -webkit-font-smoothing: antialiased;
+}
+
+* {
+  box-sizing: border-box;
+  outline: none;
+  text-decoration: none;
+  color: inherit;
+}
+
+p {
+  padding: 0;
+  margin: 0;
+}
+
+h1, h2, h3, h4, h5, h6, h7 {
+  padding: 0;
+  margin: 0;
+}
+
+.flex-container {
+  display: flex;
+}
+
+.align {
+  &--center {
+    text-align: center !important;
+    justify-content: center !important;
+  }
+
+  &--left {
+    text-align: left !important;
+    justify-content: flex-start !important;
+  }
+
+  &--right {
+    text-align: right !important;
+    justify-content: flex-end !important;
+  }
+
+  &--between {
+    justify-content: space-between;
+  }
+
+  &--vertical {
+    vertical-align: middle;
+    align-items: center;
+  }
+
+  &--justify {
+    text-align: justify;
+  }
+}
+
+.container {
+  //width: 1185px;
+  width: 99%;
+  margin: 0 auto;
+
+  //.middleDesktop({
+  //
+  //});
+
+  .smallDesktop({ width: 98.7%; margin: 0 auto; });
+
+  .tablet({ width: 95%; margin: 0 auto; });
+
+  .mobile({ width: 96%; margin: 0 auto; });
+}
+
+.position {
+  &--relative {
+    position: relative;
+  }
+}
+
+.height-100 {
+  height: 100%;
+}
+
+.shadow {
+  box-shadow: 0px 30px 60px 0px rgba(0, 8, 38, 0.4);
+  text-shadow: 0px 30px 60px rgba(0, 8, 38, 0.4);
+}
+
+.invisible {
+  &--mobile {
+    .mobile({ display: none !important; });
+  }
+
+  &--tablet {
+    .tablet({ display: none !important; });
+  }
+
+  &--desktop {
+    .desktop({ display: none !important; });
+
+    .smallDesktop({ display: none !important; });
+
+    .middleDesktop({ display: none !important; });
+  }
+}
+
+.btn {
+  .font-karla-bold();
+  font-size: 12px;
+  color: @grey;
+  letter-spacing: 0.1px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 9px 12px;
+  border: none;
+  text-transform: uppercase;
+  cursor: pointer;
+  background: var(--btnBackgroundStandart);
+
+  &--blue {
+    background: @blue;
+    color: @white;
+  }
+
+  &--dark {
+    background: var(--btnDarkBackground);
+    color: var(--formBackgroundHeader);
+  }
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.title {
+  .font-walsheim-pro-medium();
+  font-size: 14px;
+  color: var(--titleColor);
+}
+
+.text {
+  &--red {
+    color: @red !important;
+  }
+}

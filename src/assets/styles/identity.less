@@ -1,0 +1,63 @@
+.identity {
+  &__row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 20px 0;
+  }
+
+  &__delimiter {
+    display: block;
+    margin: 0;
+
+    width: 100%;
+    height: 1px;
+
+    border: none;
+
+    background: var(--formBackgroundColor);
+  }
+
+  &__block {
+    &--firstname {
+      width: 48%;
+    }
+
+    &--lastname {
+      width: 48%;
+    }
+
+    &--month {
+      width: 40%;
+    }
+
+    &--date {
+      width: 25%;
+    }
+
+    &--year {
+      width: 25%;
+    }
+
+    &--street {
+      width: 65%;
+    }
+
+    &--city {
+      width: 30%;
+    }
+
+    &--country {
+      width: 30%;
+    }
+
+    &--state {
+      width: 30%;
+    }
+
+    &--postal-code {
+      width: 30%;
+    }
+  }
+}

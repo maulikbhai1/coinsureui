@@ -1,0 +1,96 @@
+.buy-sell {
+  &__body {
+    padding: 16px 16px;
+    background: var(--formBackgroundHeader);
+  }
+
+  &__settings-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    background: var(--formBackgroundColor);
+    padding: 8px 16px;
+  }
+
+  &__wallet-container {
+    display: flex;
+    align-items: center;
+  }
+
+  &__wallet-icon {
+    margin-right: 9px;
+  }
+
+  &__settings-text {
+    .font-walsheim-pro-regular();
+    font-size: 14px;
+    color: var(--titleColor);
+    text-transform: uppercase;
+
+    &--main {
+      .font-karla-bold();
+      font-size: 12px;
+      color: var(--darkerTextColor);
+    }
+
+    &--extra {
+      .font-karla-bold();
+      font-size: 11px;
+      margin-left: 3px;
+    }
+  }
+
+  &__radio-button-container {
+    display: flex;
+    align-items: center;
+  }
+
+  &__radion-button {
+    margin-right: 30px;
+  }
+
+  &__input-block-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 14px;
+  }
+
+  &__btn-block {
+    margin-top: 13px;
+  }
+
+  &__btn-block-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__btn-title {
+    .font-karla-bold();
+    font-size: 12px;
+    color: var(--darkerTextColor);
+    text-transform: uppercase;
+  }
+
+  &__btn-mark {
+    .font-walsheim-pro-regular();
+    font-size: 14px;
+    color: var(--titleColor);
+    text-transform: uppercase;
+
+    &--extra {
+      .font-karla-bold();
+      font-size: 11px;
+      color: var(--titleColor);
+      margin-left: 3px;
+    }
+  }
+
+  &__btn {
+    width: 100%;
+    margin-top: 13px;
+    font-size: 14px;
+    padding: 15px 0;
+  }
+}

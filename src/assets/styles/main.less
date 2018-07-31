@@ -1,0 +1,85 @@
+.exchange {
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 8px;
+
+    .mobile({
+      flex-direction: column;
+    });
+  }
+}
+
+.side {
+  display: flex;
+  flex-direction: column;
+
+  &--left {
+    //width: 65.52%;
+    width: ~"calc(100% - 408px)";
+
+    .mobile({
+      width: 100%;
+    });
+
+    .tablet({
+      width: 62%;
+    });
+  }
+
+  &--right {
+    //width: 33.858%;
+    width: 400px;
+
+    .mobile({
+      width: 100%;
+    });
+
+    .tablet({
+      width: 36%;
+    });
+  }
+}
+
+.form {
+  background: var(--formBackgroundColor);
+  margin-bottom: 8px;
+
+  &__header {
+    background: var(--formBackgroundHeader);
+    padding: 10px 16px;
+  }
+
+  &__body {
+    background: var(--formBackgroundColor);
+    padding: 10px 16px;
+  }
+
+  &__column-container {
+    display: flex;
+    align-items: center;
+    padding: 9px 0;
+    background: var(--tableHeaderColor);
+  }
+
+  &__column-container-value {
+    padding: 5px 0;
+    border-bottom: 1px solid var(--formBackgroundColor);
+    background:  var(--formBackgroundHeader);
+  }
+
+  &__column {
+    .font-karla-bold();
+    font-size: 12px;
+    color: var(--darkerTextColor);
+    text-transform: uppercase;
+    text-align: center;
+  }
+
+  &__column-value {
+    .font-walsheim-pro-regular();
+    font-size: 11px;
+    color: var(--formColumnValueColor);
+    text-align: center;
+  }
+}

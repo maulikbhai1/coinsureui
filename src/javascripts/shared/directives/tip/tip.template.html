@@ -1,0 +1,26 @@
+<div class="tips">
+    <div class="tips__header">
+        <p class="tips__title">Tips</p>
+        <i class="tips__expand-icon icon icon-expand" ng-class="{'icon-expand--close': vm.isShowTip}"
+           ng-click="vm.toggleTip()"></i>
+    </div>
+    <div class="tips__body" ng-show="vm.isShowTip" ng-switch="vm.tipNumber">
+        <p class="tips__text" ng-switch-when="1">
+            Your password is used to encrypt your private key into a downloadable JSON file.
+            <br><br>
+            Please save your password and JSON file as Coopex cannot recover, reset your password, or help you regain access to your wallet and funds.  You will need the JSON file + password or your private key to unlock your wallet.
+        </p>
+
+        <p class="tips__text" ng-switch-when="2">
+            Save this file (and your password) in a secure location. Create a backup as needed.
+            <br><br>
+            You are your own personal bank. Coopex cannot recover or recreate this file if it is lost.  Do not use this file on any other site or your funds can be stolen.
+        </p>
+
+        <p class="tips__text" ng-switch-when="3">
+            Please save your private key. You can use your JSON file + password or your private key to unlock your wallet.
+            <br><br>
+            You are your own personal bank. Coopex cannot recover or recreate this file if it is lost.  Do not use this file on any other site or your funds can be stolen.
+        </p>
+    </div>
+</div>

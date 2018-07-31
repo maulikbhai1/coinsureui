@@ -1,0 +1,91 @@
+.custom-dropdown {
+  position: relative;
+  cursor: pointer;
+
+  &--center {
+    .custom-dropdown {
+      &__list {
+        text-align: center;
+      }
+    }
+  }
+
+  &__info {
+    .font-walsheim-pro-regular();
+    font-size: 14px;
+    color: @grey;
+    position: relative;
+
+    &:after{
+      /*Add another block-level blank space*/
+      content: '';
+      display: block;
+      position: absolute;
+      right: -15px;
+      top: 30%;
+
+      /*Make it a small rectangle so the border will create an L-shape*/
+      width: 6px;
+      height: 6px;
+
+      /*Add a white border on the bottom and left, creating that 'L' */
+      border: solid @grey;
+      border-width: 0 2px 2px 0;
+
+      /*Rotate the L 45 degrees to turn it into a checkmark*/
+      transform: rotate(45deg);
+    }
+  }
+
+  &__list {
+    position: absolute;
+    top: 115%;
+    right: -18px;
+
+    width: auto;
+
+    background: @white;
+
+    padding: 0 15px;
+
+    max-height: 0;
+    overflow: hidden;
+    transition: all .5s linear;
+
+    z-index: 10;
+
+    .mobile({
+      top: 117%;
+      right: 0;
+      left: 0;
+      width: 100%;
+    });
+
+    &--open {
+      max-height: 147px;
+      padding: 11px 15px;
+      overflow-y: scroll;
+    }
+
+    &--hide {
+      box-shadow: none;
+      border: none;
+    }
+  }
+
+  &__item {
+    .font-walsheim-pro-regular();
+    font-size: 14px;
+    color: @grey;
+
+    margin-bottom: 7px;
+
+    white-space: nowrap;
+
+    cursor: pointer;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}

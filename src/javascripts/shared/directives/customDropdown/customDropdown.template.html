@@ -1,0 +1,9 @@
+<div class="custom-dropdown">
+    <div ng-click="vm.toggleShow()" ng-show="vm.currentValue" class="custom-dropdown__info">{{vm.currentValue.title}}</div>
+    <div ng-click="vm.toggleShow()" ng-show="!vm.currentValue && vm.placeholder" class="custom-dropdown__info">{{vm.placeholder}}</div>
+    <div ng-class="{'custom-dropdown__list--open': vm.show, 'custom-dropdown__list--hide': !vm.show}" class="form custom-dropdown__list">
+        <div ng-repeat="item in vm.items" ng-click="vm.selectItem($index, item)" class="custom-dropdown__item">
+            {{item.title}}
+        </div>
+    </div>
+</div>

@@ -1,0 +1,19 @@
+<div class="form">
+    <div class="form__header">
+        <h2 class="title">Order History</h2>
+    </div>
+    <div class="form__body order-book__body">
+        <div class="form__column-container order-book__column-container">
+            <div class="form__column order-book__column">Size</div>
+            <div class="form__column order-book__column">Price (USD)</div>
+            <div class="form__column order-book__column">Time</div>
+        </div>
+        <div class="order-book__order-form-container">
+            <div ng-repeat="orderHistory in vm.orderHistoryList" class="form__column-container form__column-container-value">
+                <div class="form__column order-book__column form__column-value">{{ orderHistory.size }}</div>
+                <div class="form__column order-book__column form__column-value">{{ orderHistory.price_usd }}</div>
+                <div class="form__column order-book__column form__column-value">{{ orderHistory.time }}</div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,26 @@
+<div class="form">
+    <div class="form__header order-list__header">
+        <h2 class="title">Orders</h2>
+        <select-menu-component item-list="vm.orderTypeList" on-select-item="vm.changeOrderType(item)"></select-menu-component>
+    </div>
+    <div class="form__body order-list__body">
+        <div class="form__column-container order-list__column-container">
+            <div class="form__column order-list__column">Size</div>
+            <div class="form__column order-list__column">Filled</div>
+            <div class="form__column order-list__column">Price (USD)</div>
+            <div class="form__column order-list__column">Fee</div>
+            <div class="form__column order-list__column">Time</div>
+            <div class="form__column order-list__column">Status</div>
+        </div>
+        <div class="order-list__order-form-container">
+            <div ng-repeat="order in vm.orderList" class="form__column-container form__column-container-value">
+                <div class="form__column-value order-list__column order-list__column-value">{{ order.size }}</div>
+                <div class="form__column-value order-list__column order-list__column-value">{{ order.filled }}</div>
+                <div class="form__column-value order-list__column order-list__column-value">{{ order.price_usd }}</div>
+                <div class="form__column-value order-list__column order-list__column-value">{{ order.fee }}</div>
+                <div class="form__column-value order-list__column order-list__column-value">{{ order.time }}</div>
+                <div class="form__column-value order-list__column order-list__column-value">{{ order.status }}</div>
+            </div>
+        </div>
+    </div>
+</div>

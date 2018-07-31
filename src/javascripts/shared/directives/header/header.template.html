@@ -1,0 +1,34 @@
+<div id="header" class="header">
+    <div class="header__container">
+        <a href="/" ng-class="{ 'icon-logo--dark': vm.themeClass === 'theme--dark', 'icon-logo--light': vm.themeClass === 'theme--light' }" class="icon"></a>
+        <div class="header__manage-block">
+            <section class="header__manage-block" ng-show="!vm.isLoggedIn">
+                <button class="btn header__btn header__btn--signUp" ng-click="vm.show('signUp')">Sign Up</button>
+                <button class="btn btn--blue header__btn header__btn--login" ng-click="vm.show('login')">Login</button>
+            </section>
+            <section class="header__manage-block" ng-show="vm.isLoggedIn">
+                <p class="header__wallet">0x3454452QPYdnL16tzs4mnrikhAKvWwMH53EGhP4</p>
+                <i class="icon icon-copy header__icon-copy"></i>
+                <i class="icon icon-QR"></i>
+                <hr class="header__delimiter">
+                <i class="icon icon-settings"></i>
+                <hr class="header__delimiter">
+            </section>
+            <!--<button ng-click="vm.toggleWallet()" class="btn btn&#45;&#45;blue header__unlock-btn">Unlock wallet-->
+                <!--<div ng-class="{'header__dropdown-background&#45;&#45;visible': vm.isShowWalletDropdown }" class="header__dropdown-background"></div>-->
+                <!--<div ng-class="{'header__dropdown&#45;&#45;open': vm.isShowWalletDropdown, 'header__dropdown&#45;&#45;hide': !vm.isShowWalletDropdown}" class="header__dropdown">-->
+                    <!--<div class="header__dropdown-item" ng-click="vm.selectVerificationMethod(1)">Private Key</div>-->
+                    <!--<div class="header__dropdown-item" ng-click="vm.selectVerificationMethod(2)">Keystore File</div>-->
+                    <!--<div class="header__dropdown-item" ng-click="vm.selectVerificationMethod(3)">Hardware Wallet</div>-->
+                <!--</div>-->
+            <!--</button>-->
+        </div>
+    </div>
+</div>
+<login-component ng-show="vm.isShow.login" on-close="vm.show('login')" on-forget-password="vm.show('forgetPassword')"></login-component>
+<sign-up-component ng-show="vm.isShow.signUp" on-close="vm.show('signUp')" on-login="vm.show('login')"></sign-up-component>
+<forgot-password-component ng-show="vm.isShow.forgetPassword" on-close="vm.show('forgetPassword')"></forgot-password-component>
+<reset-password-component ng-show="vm.isShow.resetPassword" on-close="vm.show('resetPassword')"></reset-password-component>
+<identity-component ng-show="vm.isShow.identity" on-close="vm.show('identity')"></identity-component>
+<!--<popup-verification-component verification-type="vm.verificationType" on-close="vm.closeVerification()"></popup-verification-component>-->
+<!--<wallet-component is-create-new-wallet="vm.isShowNewWallet" on-close="vm.closeNewWallet()"></wallet-component>-->

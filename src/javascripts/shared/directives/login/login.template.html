@@ -1,0 +1,39 @@
+<div class="popup__module">
+    <div class="popup__form">
+        <div class="popup__header">
+            <p class="popup__banner">Login</p>
+            <i class="icon icon-close popup__close-icon" ng-click="vm.close()"></i>
+        </div>
+        <div class="popup__body">
+            <div class="input-block input-block--light popup__row">
+                <div class="input-block__title input-block__title--big">Email Address</div>
+                <div class="input-block__field popup__input-field">
+                    <input placeholder="johndoe@gmail.com" class="input-block__input"
+                           type="text" ng-model="vm.model.email"/>
+                </div>
+            </div>
+
+            <div class="input-block input-block--light popup__row">
+                <div class="input-block__title input-block__title--big">Password</div>
+                <div class="input-block__field popup__input-field">
+                    <input placeholder="••••••••••••••••" class="input-block__input"
+                           type="password" ng-model="vm.model.password"/>
+                </div>
+            </div>
+
+            <div class="login__settings-row">
+                <label class="checkbox-container">
+                    Remember Me
+                    <input type="checkbox" checked="checked">
+                    <span class="checkmark"></span>
+                </label>
+
+                <p class="login__forgot-pass" ng-click="vm.forgetPassword()">Forgot Password</p>
+            </div>
+
+            <div class="popup__btn-container sign-up__manage-row">
+                <button class="btn btn--blue popup__btn sign-up__btn" ng-click="vm.login()">Login</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,18 @@
+<div class="select-menu-container">
+    <div ng-class="{'select-menu--invisible-mobile': vm.useMobileView}" class="select-menu">
+        <div ng-repeat="item in vm._itemList"
+             ng-class="{'select-menu__item--active': vm.selectedItem.id === item.id}"
+             ng-click="vm.selectItem(item)"
+             class="select-menu__item">
+            {{ item.title }}
+        </div>
+    </div>
+    <div ng-class="{'select-dropdown-menu--invisible-mobile': !vm.useMobileView}" class="select-dropdown-menu">
+        <div ng-click="vm.toggleShow()" class="select-dropdown-menu__info">{{ vm.selectedItem.title }}</div>
+        <div ng-class="{'select-dropdown-menu__list--open': vm.isShow, 'select-dropdown-menu__list--hide': !vm.isShow}" class="select-dropdown-menu__list">
+            <div ng-repeat="item in vm._itemList" ng-click="vm.selectItem(item)" class="select-dropdown-menu__list-item">
+                {{ item.title }}
+            </div>
+        </div>
+    </div>
+</div>

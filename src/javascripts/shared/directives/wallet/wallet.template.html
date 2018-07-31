@@ -1,0 +1,56 @@
+<div class="popup__module" ng-show="vm.isCreateNewWallet">
+    <div class="popup__form">
+        <div class="popup__header">
+            <p class="popup__banner">Create New Wallet</p>
+            <i class="icon icon-close popup__close-icon" ng-click="vm.close()"></i>
+        </div>
+        <ul class="step-menu">
+            <li class="step-menu__item" ng-class="{'step-menu__item--active': vm.selectedStep === 1}">Step 1</li>
+            <li class="step-menu__item" ng-class="{'step-menu__item--active': vm.selectedStep === 2}">Step 2</li>
+            <li class="step-menu__item" ng-class="{'step-menu__item--active': vm.selectedStep === 3}">Step 3</li>
+        </ul>
+        <div class="popup__body wallet__body" ng-switch="vm.selectedStep">
+            <section ng-switch-when="1">
+                <div class="input-block input-block--light">
+                    <div class="input-block__title input-block__title--big">Create a Password</div>
+                    <div class="input-block__field wallet__input-field">
+                        <input ng-show="!vm.isShowPassword" placeholder="***" class="input-block__input"
+                               type="password" ng-model="vm.wallet.password"/>
+                        <label ng-show="vm.isShowPassword">{{ vm.wallet.password }}</label>
+                        <i class="icon icon-eye input-block__eye-icon" ng-class="{'icon-eye--active': vm.isShowPassword}"
+                           ng-click="vm.togglePassword()"></i>
+                    </div>
+                </div>
+                <tip-component class="wallet__tips" tip-number="1"></tip-component>
+                <div class="popup__btn-container">
+                    <button class="btn btn--blue popup__btn wallet__btn" ng-click="vm.createNewWallet()">Create New Wallet</button>
+                </div>
+            </section>
+
+            <section ng-switch-when="2">
+                <div class="keystore-select">
+                    <p class="keystore-select__text">SAVE YOUR KEYSTORE FILE</p>
+                    <button class="btn btn--dark keystore-select__btn">Download file</button>
+                </div>
+                <tip-component class="wallet__tips" tip-number="2"></tip-component>
+                <div class="popup__btn-container">
+                    <button class="btn btn--blue popup__btn wallet__btn" ng-click="vm.continue()">Continue</button>
+                </div>
+            </section>
+
+            <section ng-switch-when="3">
+                <div class="input-block">
+                    <div class="input-block__title input-block__title--big">Save your private key</div>
+                    <div class="input-block__field input-block__field--fake">
+                        <label class="input-block__fake-input">{{ vm.wallet.privateKey }}</label>
+                        <button class="input-block__copy-btn btn btn--blue" clipboard text="vm.wallet.privateKey">COPY</button>
+                    </div>
+                </div>
+                <tip-component class="wallet__tips" tip-number="3"></tip-component>
+                <div class="popup__btn-container">
+                    <button class="btn btn--blue popup__btn wallet__btn" ng-click="vm.finish()">Finish</button>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>
