@@ -21,7 +21,10 @@
         url:     formatter.market_url gon.market.id, tr.data('id')
         method:  'delete'
         success: =>
-          location.reload()
+          $.getJSON "https://coopex.market/markets/#{gon.market.id}.json", (market_data) =>
+            @trigger 'market::order_book::update', asks: market_data.gon_variables.asks, bids: market_data.gon_variables.bids
+            gon.my_orders = market_data.gon_variables.my_orders
+            @trigger 'order::wait::populate', orders: market_data.gon_variables.my_orders
 
   @after 'initialize', ->
     @on document, 'order::wait::populate', @populate
