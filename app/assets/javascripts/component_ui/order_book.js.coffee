@@ -92,7 +92,7 @@
 
     {price: price, volume: volume, origVolume: origVolume}
 
-  @placeOrder = (target, data) ->
+  @placeOrder = (target, data) ->    
       @trigger target, 'place_order::input::price', data
       @trigger target, 'place_order::input::volume', data
 
@@ -102,13 +102,13 @@
     @on @select('fade_toggle_depth'), 'click', =>
       @trigger 'market::depth::fade_toggle'
 
-    $('.asks').on 'click', 'div', (e) =>
-      i = $(e.target).closest('div').data('order')
+    $('.asks').on 'click', 'tr', (e) =>
+      i = $(e.target).closest('tr').data('order')
       @placeOrder $('#bid_entry'), _.extend(@computeDeep(e, gon.asks), type: 'ask')
       @placeOrder $('#ask_entry'), {price: BigNumber(gon.asks[i][0]), volume: BigNumber(gon.asks[i][1])}
 
-    $('.bids').on 'click', 'div', (e) =>
-      i = $(e.target).closest('div').data('order')
+    $('.bids').on 'click', 'tr', (e) =>
+      i = $(e.target).closest('tr').data('order')
       @placeOrder $('#ask_entry'), _.extend(@computeDeep(e, gon.bids), type: 'bid')
       @placeOrder $('#bid_entry'), {price: BigNumber(gon.bids[i][0]), volume: BigNumber(gon.bids[i][1])}
   
