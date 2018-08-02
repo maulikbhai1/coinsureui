@@ -5,7 +5,7 @@
     <%= formatter.mask_fixed_volume(amount) %>
   </div></td>
   <td class="form__column-value order-list__column order-list__column-value"><div>
-    Open
+    <%= type %>
   </div></td>
   <td class="form__column-value order-list__column order-list__column-value"><div>
     <%= formatter.mask_fixed_price(price) %>
@@ -15,8 +15,5 @@
   </div></td>
   <td class="form__column-value order-list__column order-list__column-value" title="<%= formatter.fix_bid(price*amount) %>"><div>
     <%= formatter.trade_time(date) %>
-  </div></td>
-  <td class="form__column-value order-list__column order-list__column-value" title="<%= formatter.fix_bid(price*amount) %>"><div>
-    
   </div></td>
 </tr>
