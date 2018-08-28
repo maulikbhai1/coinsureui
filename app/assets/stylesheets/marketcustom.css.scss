@@ -1200,7 +1200,7 @@ h7 {
   justify-content: space-between;
 }
 .side--left {
-  width: calc(100% - 408px);
+  width: calc(100% - 608px);
   height: 100%;
 }
 @media only screen and (min-width: 300px) and (max-width: 767.99px) {
@@ -1216,7 +1216,7 @@ h7 {
   }
 }
 .side--right {
-  width: 400px;
+  width: 600px;
   height: 100%;
 }
 @media only screen and (min-width: 300px) and (max-width: 767.99px) {
@@ -1366,7 +1366,7 @@ h7 {
   flex-direction: column;
 }
 .side--left {
-  width: calc(100% - 408px);
+  width: calc(100% - 608px);
 }
 @media only screen and (min-width: 300px) and (max-width: 767.99px) {
   .side--left {
@@ -1379,7 +1379,7 @@ h7 {
   }
 }
 .side--right {
-  width: 400px;
+  width: 600px;
 }
 @media only screen and (min-width: 300px) and (max-width: 767.99px) {
   .side--right {
@@ -2100,3 +2100,16 @@ h7 {
 .history__account .history__column-value:nth-child(6) {
   width: 44.5%;
 }
+
+.order-book-ask * {
+
+    color: red;
+
+}
+
+.order-book-bid * {
+
+    color: green;
+
+}
+

@@ -15,9 +15,10 @@ gem 'momentjs-rails', '~> 2.17'
 gem 'mini_racer', '~> 0.1', require: false
 gem 'ejs','~> 1.1'
 gem 'faraday', '~> 0.12'
+gem 'listen', '>= 3.0.5', '< 3.2'
 
 group :development do
-  gem 'listen', '>= 3.0.5', '< 3.2'
+  
 end
 
 group :development, :test do
