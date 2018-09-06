@@ -18,7 +18,7 @@ gem 'faraday', '~> 0.12'
 gem 'listen', '>= 3.0.5', '< 3.2'
 
 group :development do
-  
+gem 'coffee-rails-source-maps'  
 end
 
 group :development, :test do
