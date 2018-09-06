@@ -68,7 +68,7 @@ if(parseFloat(open) > parseFloat(last)){
         this.children[2].style = "color:red";
         this.children[2].textContent = ((1 - (parseFloat(last)/(parseFloat(open))))*100).toFixed(2) + '%';
 }
-if(parseFloat(gon.ticker.open) < parseFloat(gon.ticker.last)){
+if(parseFloat(open) < parseFloat(last)){
         this.children[2].classList.remove('red-after');
         this.children[2].classList.add('green-after');
         this.children[2].style = "color:green";
