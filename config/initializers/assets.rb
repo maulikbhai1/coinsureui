@@ -12,8 +12,6 @@ Rails.application.config.assets.prefix = '/trading-ui-assets'
 # folder are already added.
 Rails.application.config.assets.precompile += %w( market.css market.js html5.js )
 Rails.application.config.assets.precompile += %w( marketcustom.css )
-Rails.application.config.assets.precompile += %w( market_header.js )
-Rails.application.config.assets.precompile += %w( market_logic.js )
 Dir[Rails.root.join('app/assets/javascripts/locales/*.js.erb')].each do |f|
   Rails.application.config.assets.precompile << File.join('locales', File.basename(f, '.erb'))
 end

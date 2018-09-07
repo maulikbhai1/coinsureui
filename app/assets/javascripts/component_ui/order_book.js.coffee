@@ -1,6 +1,6 @@
 @OrderBookUI = flight.component ->
   @attributes
-    bookLimit: 30
+    bookLimit: 100
     askBookSel: '.order-book-ask'
     bidBookSel: '.order-book-bid'
     seperatorSelector: 'table.seperator'
