@@ -1,7 +1,13 @@
-# Peatio Trading UI
+# COOPEX Trading UI
 
 ## Installation steps
 
-Please, read [Peatio 1.5 release notes](https://github.com/rubykube/peatio/blob/master/docs/releases/1.5.0.md) for getting all details about how Trading UI works.
+1. Git clone
+2. Bundle Install
+3. Search for 'coopex.market' in the repository (use the search bar above) and make sure you replace all instances of it with your application URL (will be moving to ENV variables soon)
+4. For production, you can do rake assets:precompile RAILS_ENV=production
+5. bundle exec rails s
 
-You can use **#449** as search term in the release notes to find required paragraph.
+
+#TODO: 
+#Tradingview integration, de-caffeinate, full conversion to angular/react (angular branch is just for modeling and is non-functional), loading subset of order book for scalability
