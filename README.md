@@ -9,5 +9,7 @@
 5. bundle exec rails s
 
 
-#TODO: 
-#Tradingview integration, de-caffeinate, full conversion to angular/react (angular branch is just for modeling and is non-functional), loading subset of order book for scalability
+
+
+# TODO: 
+# Tradingview integration, de-caffeinate, full conversion to angular/react (angular branch is just for modeling and is non-functional), loading subset of order book for scalability
