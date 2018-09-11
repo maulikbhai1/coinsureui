@@ -8,7 +8,7 @@
 4. For production, you can do rake assets:precompile RAILS_ENV=production
 5. bundle exec rails s
 
-View a working version of this UI at https://coopex.market/trading/igeth
+View a working version of this UI at https://coopex.market/trading/igeth  
 If it tells you to log in, just try the link again.
 
 
