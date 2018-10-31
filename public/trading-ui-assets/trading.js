@@ -86,9 +86,9 @@ window.location.reload();
 $('#buy-button').click();
 document.getElementById("price_").textContent = `Price (${gon.market.bid_unit})`;
 
-if(gon.market.id === "coopbtc" || gon.market.id === "coopeth" || gon.market.id === "coopbch") { 
+/*if(gon.market.id === "coopbtc" || gon.market.id === "coopeth" || gon.market.id === "coopbch") { 
 document.getElementsByClassName("buy-sell__btn btn btn--blue")[0].remove()
-$('.trading-dropdown__form-container').children()}
+$('.trading-dropdown__form-container').children()}*/
 
 };
 
