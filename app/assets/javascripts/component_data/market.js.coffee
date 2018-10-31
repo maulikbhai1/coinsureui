@@ -158,7 +158,7 @@
   @handleOrderBookData = (data) ->
     if gon.asks[gon.asks.length-1][0] == data.asks[data.asks.length-1][0] ||  gon.asks[gon.asks.length-1][1] != data.asks[data.asks.length-1][1] || 
     gon.bids[gon.bids.length-1][0] != data.bids[data.bids.length-1][0] || gon.bids[gon.bids.length-1][1] != data.bids[data.bids.length-1][1]
-      @asks = data.asks
+      @asks = data.asks.reverse()
       @bids = data.bids
       @trigger 'market::order_book::update', asks: @asks, bids: @bids
       
