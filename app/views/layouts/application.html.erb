@@ -1,3 +1,4 @@
+ 
 <!DOCTYPE html>
 <html>
   <head>
@@ -33,6 +34,10 @@
     <%= javascript_include_tag 'application' %> 
     <script src="/trading-ui-assets/market_header.js"></script>
     <script src="/trading-ui-assets/market_logic.js"></script>
+    <script type="text/javascript" src="/trading-ui-assets/charting_library/charting_library.min.js"></script>
+    <script type="text/javascript" src="/trading-ui-assets/datafeeds/udf/dist/polyfills.js"></script>
+    <script type="text/javascript" src="/trading-ui-assets/datafeeds/udf/dist/bundle.js"></script>
+    <script type="text/javascript" src="/trading-ui-assets/TradingView.js"></script>
 
   </head>
   <body ng-app="coinvest" class="theme--light"><%= yield %></body>
